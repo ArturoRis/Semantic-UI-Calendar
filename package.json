@@ -1,11 +1,20 @@
 {
-  "name": "semantic-ui-calendar",
+  "name": "eng-semantic-ui-calendar",
   "version": "0.0.6",
   "description": "Calendar module for Semantic UI",
   "author": "Michael de Hoog (https://github.com/mdehoog/)",
+  "contributors": [
+    {
+      "name": "Fabio Siliberto",
+      "email": "fabio.siliberto@gmail.com"
+    },
+    {
+      "name": "Smartm0use"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mdehoog/semantic-ui-calendar.git"
+    "url": "https://github.com/ArturoRis/Semantic-UI-Calendar.git"
   },
   "license": "MIT",
   "devDependencies": {
