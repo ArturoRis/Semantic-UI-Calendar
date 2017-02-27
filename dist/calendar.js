@@ -260,14 +260,14 @@
                     var prev = $('<span/>').addClass(className.prev).appendTo(cell);
                     prev.data(metadata.focusDate, prevDate);
                     prev.toggleClass(className.disabledCell, !module.helper.isDateInRange(prevLast, mode));
-                    $('<i/>').addClass(className.prevIcon).appendTo(prev);
+                    $('<span class="ifix"/>').addClass(className.prevIcon).appendTo(prev);
                   }
 
                   if (p === pages - 1) {
                     var next = $('<span/>').addClass(className.next).appendTo(cell);
                     next.data(metadata.focusDate, nextDate);
                     next.toggleClass(className.disabledCell, !module.helper.isDateInRange(nextFirst, mode));
-                    $('<i/>').addClass(className.nextIcon).appendTo(next);
+                    $('<span class="ifix"/>').addClass(className.nextIcon).appendTo(next);
                   }
 
                   if (isDay) {
