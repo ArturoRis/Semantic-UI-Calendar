@@ -246,7 +246,11 @@
                   var thead = $('<thead/>').appendTo(table);
 
                   row = $('<tr/>').appendTo(thead);
-                  cell = $('<th/>').attr('colspan', '' + columns).appendTo(row);
+                  cell = $('<th/>').attr({
+                    id: 'header-date',
+                    scope: 'col',
+                    colspan: '' + columns
+                  }).appendTo(row);
 
                   var headerDate = isYear || isMonth ? new Date(year, 0, 1) :
                     isDay ? new Date(year, month, 1) : new Date(year, month, day, hour, minute);
