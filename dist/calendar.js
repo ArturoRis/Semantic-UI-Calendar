@@ -277,8 +277,13 @@
                   if (isDay) {
                     row = $('<tr/>').appendTo(thead);
                     for (i = 0; i < columns; i++) {
-                      cell = $('<th/>').appendTo(row);
-                      cell.text(formatter.dayColumnHeader((i + settings.firstDayOfWeek) % 7, settings));
+                      var cellDay = formatter.dayColumnHeader((i + settings.firstDayOfWeek) % 7, settings);
+                      cell = $('<th/>').attr({
+                        id: cellDay,
+                        headers: 'header-date',
+                        scope: 'col'
+                      }).appendTo(row);
+                      cell.text(cellDay);
                     }
                   }
                 }
@@ -294,7 +299,7 @@
                     var cellText = isYear ? i :
                       isMonth ? settings.text.monthsShort[i] : isDay ? cellDate.getDate() :
                         formatter.time(cellDate, settings, true);
-                    cell = $('<td/>').addClass(className.cell).appendTo(row);
+                    cell = $('<td/>').attr('headers', formatter.dayColumnHeader((c + settings.firstDayOfWeek) % 7, settings)).addClass(className.cell).appendTo(row);
                     cell.text(cellText);
                     cell.data(metadata.date, cellDate);
                     var adjacent = isDay && cellDate.getMonth() !== ((month + 12) % 12);
