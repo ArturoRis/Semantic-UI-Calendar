@@ -247,7 +247,7 @@
 
                   row = $('<tr/>').appendTo(thead);
                   cell = $('<th/>').attr({
-                    id: 'header-date',
+                    id: 'header-date ' + (Math.random().toString(36)).slice(2),
                     scope: 'col',
                     colspan: '' + columns
                   }).appendTo(row);
@@ -279,7 +279,7 @@
                     for (i = 0; i < columns; i++) {
                       var cellDay = formatter.dayColumnHeader((i + settings.firstDayOfWeek) % 7, settings);
                       cell = $('<th/>').attr({
-                        id: cellDay,
+                        id: cellDay + ' ' + (Math.random().toString(36)).slice(2),
                         headers: 'header-date',
                         scope: 'col'
                       }).appendTo(row);
