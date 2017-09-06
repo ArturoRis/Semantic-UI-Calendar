@@ -244,10 +244,11 @@
                 //no header for time-only mode
                 if (!isTimeOnly) {
                   var thead = $('<thead/>').appendTo(table);
+                  var headerDateText = 'header-date-' + (Math.random().toString(36)).slice(2);
 
                   row = $('<tr/>').appendTo(thead);
                   cell = $('<th/>').attr({
-                    id: 'header-date ' + (Math.random().toString(36)).slice(2),
+                    id: headerDateText,
                     scope: 'col',
                     colspan: '' + columns
                   }).appendTo(row);
@@ -279,8 +280,8 @@
                     for (i = 0; i < columns; i++) {
                       var cellDay = formatter.dayColumnHeader((i + settings.firstDayOfWeek) % 7, settings);
                       cell = $('<th/>').attr({
-                        id: cellDay + ' ' + (Math.random().toString(36)).slice(2),
-                        headers: 'header-date',
+                        id: cellDay + '-' + i,
+                        headers: headerDateText,
                         scope: 'col'
                       }).appendTo(row);
                       cell.text(cellDay);
@@ -299,7 +300,8 @@
                     var cellText = isYear ? i :
                       isMonth ? settings.text.monthsShort[i] : isDay ? cellDate.getDate() :
                         formatter.time(cellDate, settings, true);
-                    cell = $('<td/>').attr('headers', formatter.dayColumnHeader((c + settings.firstDayOfWeek) % 7, settings)).addClass(className.cell).appendTo(row);
+                    cell = $('<td/>').attr('headers', formatter.dayColumnHeader((c + settings.firstDayOfWeek) % 7, settings) + '-' + c)
+                        .addClass(className.cell).appendTo(row);
                     cell.text(cellText);
                     cell.data(metadata.date, cellDate);
                     var adjacent = isDay && cellDate.getMonth() !== ((month + 12) % 12);
